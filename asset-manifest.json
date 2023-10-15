@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/twnetyfour/static/css/main.03818fa3.css",
+    "main.js": "/twnetyfour/static/js/main.46423489.js",
+    "index.html": "/twnetyfour/index.html",
+    "main.03818fa3.css.map": "/twnetyfour/static/css/main.03818fa3.css.map",
+    "main.46423489.js.map": "/twnetyfour/static/js/main.46423489.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.03818fa3.css",
+    "static/js/main.46423489.js"
+  ]
+}
