@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/twentyfour/static/css/main.03818fa3.css",
-    "main.js": "/twentyfour/static/js/main.46423489.js",
+    "main.js": "/twentyfour/static/js/main.7993d5be.js",
     "index.html": "/twentyfour/index.html",
     "main.03818fa3.css.map": "/twentyfour/static/css/main.03818fa3.css.map",
-    "main.46423489.js.map": "/twentyfour/static/js/main.46423489.js.map"
+    "main.7993d5be.js.map": "/twentyfour/static/js/main.7993d5be.js.map"
   },
   "entrypoints": [
     "static/css/main.03818fa3.css",
-    "static/js/main.46423489.js"
+    "static/js/main.7993d5be.js"
   ]
 }
