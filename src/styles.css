@@ -1,0 +1,201 @@
+:root {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  color: var(--ink);
+  background: var(--page);
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  --green: #126b56;
+  --page: #f7f8f4;
+  --ink: #252e2a;
+  --ink-strong: #25372d;
+  --muted: #737b74;
+  --quiet: #7b8577;
+  --subtle: #91998a;
+  --line: #e0e5dc;
+  --surface: #fff;
+  --card-shadow: #ecefe7;
+  --soft-shadow: #25372d03;
+  --card-corner: #b9c5b5;
+  --card-caption: #a4ad9e;
+  --accent-ink: #fff;
+  --accent-detail: #b6d9c4;
+  --accent-hover: #0c5946;
+  --badge: #dbe9c7;
+  --badge-ink: #35543d;
+  --result: #eef5ed;
+  --result-border: #cbdcc8;
+  --result-corner: #81a38a;
+  --solved-shadow: #c3d9c1;
+  --solved-detail: #c5dfcb;
+  --input-border: #d6ddd1;
+  --focus: #72a58e;
+  --focus-ring: #126b560b;
+  --placeholder: #a4ada0;
+  --error: #a54835;
+  --error-border: #c98872;
+  --ghost-hover: #edf0e8;
+  --secondary: #eaf0e3;
+  --secondary-ink: #34573e;
+  --secondary-border: #dce5d2;
+  --secondary-hover: #dee8d5;
+}
+
+:root[data-theme="dark"] {
+  --page: #18191b;
+  --ink: #e7e9eb;
+  --ink-strong: #eceeef;
+  --green: #8fd3b2;
+  --muted: #aaaeb2;
+  --quiet: #a4aaae;
+  --subtle: #92989e;
+  --line: #35373c;
+  --surface: #222326;
+  --card-shadow: #121315;
+  --soft-shadow: #00000018;
+  --card-corner: #79818a;
+  --card-caption: #969da4;
+  --accent-ink: #13251b;
+  --accent-detail: #315c44;
+  --accent-hover: #a3dfc0;
+  --badge: #344b34;
+  --badge-ink: #c1dbad;
+  --result: #213c30;
+  --result-border: #416a54;
+  --result-corner: #8db19b;
+  --solved-shadow: #314e3a;
+  --solved-detail: #27533b;
+  --input-border: #43464d;
+  --focus: #85bb9c;
+  --focus-ring: #8fd3b217;
+  --placeholder: #92979e;
+  --error: #f0a38a;
+  --error-border: #b87560;
+  --ghost-hover: #2c2e32;
+  --secondary: #2d3034;
+  --secondary-ink: #cbd6ce;
+  --secondary-border: #41474c;
+  --secondary-hover: #383d42;
+}
+
+* { box-sizing: border-box; }
+body { margin: 0; }
+button, input { font: inherit; }
+button { cursor: pointer; -webkit-tap-highlight-color: transparent; }
+button, a, input { touch-action: manipulation; }
+button:focus-visible, a:focus-visible { outline: 3px solid var(--focus); outline-offset: 4px; }
+.page-shell { max-width: 1184px; margin: 0 auto; padding: 0 48px; min-height: 100svh; display: flex; flex-direction: column; }
+.site-header { height: 104px; flex-shrink: 0; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid var(--line); }
+.wordmark { display: inline-flex; align-items: center; color: var(--ink-strong); text-decoration: none; font-size: 23px; letter-spacing: -1px; font-weight: 650; }
+.brand-symbol { width: 40px; height: 40px; display: inline-flex; align-items: center; justify-content: center; border-radius: 12px; background: var(--green); color: var(--accent-ink); font-size: 21px; font-weight: 550; letter-spacing: -1.5px; margin-right: 11px; position: relative; }
+.brand-symbol > span { font-size: 11px; position: absolute; top: -5px; right: -5px; line-height: 17px; height: 17px; width: 17px; border-radius: 50%; text-align: center; letter-spacing: 0; background: var(--badge); color: var(--badge-ink); }
+.wordmark-dot { color: var(--green); }
+.theme-toggle { display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 44px; padding: 0 13px; border: 1px solid var(--line); border-radius: 999px; background: transparent; color: var(--muted); font-size: 11px; font-weight: 500; transition: background 120ms, color 120ms, border-color 120ms; }
+.theme-toggle:hover { color: var(--ink); background: var(--ghost-hover); border-color: var(--input-border); }
+.theme-icon { height: 16px; width: 16px; flex-shrink: 0; }
+.theme-icon-sun { display: none; }
+[data-theme="dark"] .theme-icon-moon { display: none; }
+[data-theme="dark"] .theme-icon-sun { display: block; }
+main { width: 100%; max-width: 744px; align-self: center; padding: 59px 0 0; }
+.intro { text-align: center; }
+h1 { margin: 0; font-size: clamp(34px, 4.5vw, 53px); font-weight: 550; line-height: 1.12; letter-spacing: -2.5px; }
+h1 > span { color: var(--green); }
+.intro-copy { margin: 17px 0 0; font-size: 14px; line-height: 1.7; color: var(--muted); }
+.mobile-break { display: none; }
+.game { margin-top: 41px; }
+.board { display: flex; justify-content: center; flex-wrap: wrap; list-style: none; padding: 0; margin: 0; gap: 15px; min-height: 197px; }
+.number-card { position: relative; display: flex; flex-direction: column; align-items: center; justify-content: center; width: calc((100% - 45px) / 4); height: 197px; border: 1px solid var(--line); background: var(--surface); border-radius: 13px; box-shadow: 0 4px 0 var(--card-shadow), 0 5px 12px var(--soft-shadow); transition: border-color 120ms, background 120ms, box-shadow 120ms; }
+.card-corner { position: absolute; top: 14px; left: 15px; color: var(--card-corner); font-size: 16px; line-height: 1; font-weight: 400; }
+.card-value { font-size: 73px; font-weight: 500; line-height: 1; letter-spacing: -4px; font-variant-numeric: tabular-nums; margin-top: 5px; }
+.card-value.is-long { font-size: 34px; letter-spacing: -1.5px; }
+.card-value.is-extra-long { font-size: 23px; letter-spacing: -1px; }
+.card-caption { position: absolute; bottom: 16px; font-size: 7px; font-weight: 600; letter-spacing: 1.7px; color: var(--card-caption); }
+.number-card.is-result { background: var(--result); border-color: var(--result-border); }
+.is-result .card-value { color: var(--green); }
+.is-result .card-corner { color: var(--result-corner); }
+.number-card.is-solved { background: var(--green); border-color: var(--green); box-shadow: 0 4px 0 var(--solved-shadow); }
+.is-solved .card-value { color: var(--accent-ink); }
+.is-solved .card-caption, .is-solved .card-corner { color: var(--solved-detail); }
+.expression-form { margin-top: 31px; }
+.expression-form label { display: block; font-size: 12px; font-weight: 600; margin-bottom: 10px; }
+.input-shell { display: flex; align-items: center; min-height: 64px; padding: 7px; border: 1px solid var(--input-border); border-radius: 11px; background: var(--surface); transition: border-color 120ms, box-shadow 120ms; }
+.input-shell:focus-within { border-color: var(--focus); box-shadow: 0 0 0 3px var(--focus-ring); }
+.input-prefix { padding: 0 13px 2px 12px; color: var(--subtle); font-size: 22px; font-weight: 400; }
+#expression { width: 100%; min-width: 0; flex: 1; border: 0; outline: none; background: transparent; color: var(--ink-strong); caret-color: var(--green); font-size: 19px; font-variant-numeric: tabular-nums; letter-spacing: .3px; height: 44px; padding: 0 8px 0 0; }
+#expression::placeholder { color: var(--placeholder); font-size: 17px; letter-spacing: 0; }
+.combine-button { display: inline-flex; align-items: center; justify-content: center; gap: 20px; height: 46px; min-width: 133px; padding: 0 17px; flex-shrink: 0; border: 0; border-radius: 7px; background: var(--green); color: var(--accent-ink); font-size: 12px; font-weight: 550; transition: background 120ms; }
+.combine-button span { color: var(--accent-detail); font-size: 18px; }
+.combine-button:hover { background: var(--accent-hover); }
+.combine-button:disabled { opacity: .8; cursor: default; }
+.input-help { margin-top: 10px; display: flex; align-items: center; justify-content: space-between; gap: 8px; color: var(--subtle); font-size: 10px; }
+kbd { font-family: inherit; font-size: 11px; padding: 0 2px; color: var(--muted); }
+.enter-note { font-size: 9px; }
+.feedback { min-height: 36px; margin: 18px 0 4px; display: flex; align-items: flex-start; justify-content: center; text-align: center; font-size: 11px; line-height: 1.6; color: var(--quiet); }
+.feedback[data-type="error"] { color: var(--error); }
+.feedback[data-type="success"] { color: var(--green); }
+.input-shell.has-error { border-color: var(--error-border); }
+.board-actions { display: flex; align-items: center; justify-content: center; gap: 18px; }
+.board-actions button { display: inline-flex; justify-content: center; align-items: center; gap: 8px; padding: 11px 15px; min-height: 44px; border: 1px solid transparent; border-radius: 7px; font-size: 11px; font-weight: 550; transition: background 120ms, color 120ms; }
+.reset-button { background: transparent; color: var(--muted); }
+.reset-button:hover { color: var(--ink-strong); background: var(--ghost-hover); }
+.reset-button svg { height: 15px; width: 15px; }
+.new-turn-button { color: var(--secondary-ink); background: var(--secondary); border-color: var(--secondary-border) !important; }
+.new-turn-button:hover { background: var(--secondary-hover); }
+.new-turn-button span { font-size: 16px; padding-left: 7px; }
+.game-divider { border: 0; border-top: 1px solid var(--line); margin: 40px 0 0; }
+.random-note { text-align: center; color: var(--subtle); font-size: 9px; line-height: 1.7; margin: 23px 0 35px; }
+
+@media (min-width: 1600px) {
+  main { padding-top: 80px; }
+  .game { margin-top: 52px; }
+}
+
+@media (max-width: 760px) {
+  .page-shell { padding: 0 28px; }
+  .site-header { height: 83px; }
+  main { padding-top: 43px; }
+  .board { gap: 11px; min-height: 170px; }
+  .number-card { width: calc((100% - 33px) / 4); height: 170px; }
+  .card-value { font-size: 61px; }
+  .card-value.is-long { font-size: 25px; }
+  .card-value.is-extra-long { font-size: 17px; }
+  .card-caption { font-size: 6px; letter-spacing: 1px; }
+  .intro-copy { font-size: 13px; }
+}
+
+@media (max-width: 520px) {
+  .page-shell { padding: 0 21px; }
+  .site-header { height: 78px; }
+  .wordmark { font-size: 21px; }
+  .brand-symbol { height: 34px; width: 34px; font-size: 18px; border-radius: 10px; margin-right: 9px; }
+  .theme-toggle { gap: 6px; padding: 0 10px; font-size: 10px; }
+  main { padding-top: 35px; }
+  h1 { font-size: clamp(30px, 8.5vw, 42px); letter-spacing: -1.6px; }
+  .intro-copy { margin-top: 12px; font-size: 12px; }
+  .mobile-break { display: block; }
+  .game { margin-top: 28px; }
+  .board { gap: 12px; min-height: 142px; }
+  .number-card { width: calc((100% - 12px) / 2); height: 142px; border-radius: 11px; }
+  .card-corner { top: 11px; left: 12px; font-size: 13px; }
+  .card-value { font-size: 58px; letter-spacing: -3px; margin-top: 2px; }
+  .card-value.is-long { font-size: 30px; }
+  .card-value.is-extra-long { font-size: 20px; }
+  .card-caption { bottom: 12px; font-size: 6px; letter-spacing: 1.4px; }
+  .expression-form { margin-top: 25px; }
+  .expression-form label { font-size: 11px; }
+  .input-shell { min-height: 59px; padding: 6px; }
+  .input-prefix { padding: 0 8px 2px 7px; font-size: 19px; }
+  #expression { font-size: 17px; }
+  #expression::placeholder { font-size: 14px; }
+  .combine-button { min-width: 96px; height: 44px; padding: 0 11px; font-size: 11px; gap: 10px; }
+  .input-help { font-size: 9px; }
+  .enter-note { display: none; }
+  .feedback { margin-top: 16px; font-size: 10px; min-height: 37px; }
+  .board.is-solved + .expression-form { margin-top: 25px; }
+  .game-divider { margin-top: 29px; }
+  .random-note { font-size: 9px; margin-bottom: 27px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { transition: none !important; animation: none !important; scroll-behavior: auto !important; }
+}

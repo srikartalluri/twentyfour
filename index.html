@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#f7f8f4" />
+    <script>
+      // Set the palette before the first paint, including on a saved dark visit.
+      (() => {
+        let saved;
+        try { saved = localStorage.getItem('twentyfour-theme'); } catch {}
+        const theme = saved === 'light' || saved === 'dark'
+          ? saved
+          : matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+        document.documentElement.dataset.theme = theme;
+        document.documentElement.style.colorScheme = theme;
+        document.querySelector('meta[name="theme-color"]').content = theme === 'dark' ? '#18191b' : '#f7f8f4';
+      })();
+    </script>
+    <meta name="description" content="Four numbers. One goal. A simple arithmetic game: use every card to make 24." />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <title>twentyfour — four numbers, one goal</title>
+  </head>
+  <body>
+    <div class="page-shell">
+      <header class="site-header">
+        <a class="wordmark" href="./" aria-label="twentyfour home">
+          <span class="brand-symbol" aria-hidden="true">24<span>✳</span></span>
+          twentyfour<span class="wordmark-dot">.</span>
+        </a>
+        <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Switch to dark mode" aria-pressed="false">
+          <svg class="theme-icon theme-icon-moon" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M17 11.1A7.2 7.2 0 0 1 8.9 3a7.2 7.2 0 1 0 8.1 8.1Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <svg class="theme-icon theme-icon-sun" viewBox="0 0 20 20" fill="none" aria-hidden="true"><circle cx="10" cy="10" r="3.2" stroke="currentColor" stroke-width="1.5"/><path d="M10 1.7v1.6M10 16.7v1.6M1.7 10h1.6M16.7 10h1.6M4.1 4.1l1.2 1.2M14.7 14.7l1.2 1.2M4.1 15.9l1.2-1.2M14.7 5.3l1.2-1.2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+          <span id="theme-label">Dark mode</span>
+        </button>
+      </header>
+
+      <main>
+        <section class="intro" aria-labelledby="game-title">
+          <h1 id="game-title">Find your way to <span>24.</span></h1>
+          <p class="intro-copy">Add, subtract, multiply, or divide.<br class="mobile-break" /> Use every card, once.</p>
+        </section>
+
+        <section class="game" aria-label="twentyfour game">
+          <ul id="board" class="board" aria-label="Available cards"></ul>
+
+          <form id="expression-form" class="expression-form" novalidate>
+            <label for="expression">Your expression</label>
+            <div class="input-shell" id="input-shell">
+              <span class="input-prefix" aria-hidden="true">=</span>
+              <input id="expression" name="expression" type="text" inputmode="text" maxlength="256" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" aria-describedby="input-help feedback" placeholder="e.g. 3 + 4" />
+              <button id="submit-expression" class="combine-button" type="submit">Combine <span aria-hidden="true">↵</span></button>
+            </div>
+            <div class="input-help" id="input-help">
+              <span>Use <kbd>+</kbd> <kbd>−</kbd> <kbd>x</kbd> <kbd>/</kbd> and parentheses</span>
+              <span class="enter-note">Enter to combine</span>
+            </div>
+          </form>
+
+          <p class="feedback" id="feedback" role="status" aria-live="polite" aria-atomic="true"></p>
+
+          <div class="board-actions">
+            <button class="reset-button" id="reset-board" type="button">
+              <svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M4.2 7a6.4 6.4 0 1 1-.5 4.5M4.2 3.5V7h3.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              Reset board
+            </button>
+            <button class="new-turn-button" id="new-turn" type="button">New turn <span aria-hidden="true">↗</span></button>
+          </div>
+        </section>
+
+        <hr class="game-divider" />
+        <p class="random-note">Every hand is random. Some have no solution — a new turn is always one tap away.</p>
+      </main>
+
+    </div>
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
